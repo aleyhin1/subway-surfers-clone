@@ -639,12 +639,31 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+--- !u!1 &1864400375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4700795428815961175, guid: 70c91be03c5c05e4abe641fdc5f76d1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1448357364368082552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1864400376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4058150444376222688, guid: 70c91be03c5c05e4abe641fdc5f76d1d,
     type: 3}
   m_PrefabInstance: {fileID: 1448357364368082552}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1864400379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864400375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af03c08602c94a4dae3ccb00dffe239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementDistance: 4
 --- !u!1 &1924890282
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,11 +707,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3047419383909813419, guid: 70c91be03c5c05e4abe641fdc5f76d1d,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b5ba1d18329017948b173dbb1e8818f0, type: 2}
     - target: {fileID: 4058150444376222688, guid: 70c91be03c5c05e4abe641fdc5f76d1d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -751,7 +765,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4700795428815961175, guid: 70c91be03c5c05e4abe641fdc5f76d1d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1864400379}
   m_SourcePrefab: {fileID: 100100000, guid: 70c91be03c5c05e4abe641fdc5f76d1d, type: 3}
 --- !u!1001 &6841788145138046497
 PrefabInstance:
