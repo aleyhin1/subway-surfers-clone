@@ -65,6 +65,9 @@ GameObject:
   - component: {fileID: 4058150444376222688}
   - component: {fileID: 2510732067388345426}
   - component: {fileID: 6277042210744712109}
+  - component: {fileID: 8132797048157623778}
+  - component: {fileID: -210170869302826184}
+  - component: {fileID: -9098299390804725796}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -136,6 +139,80 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &8132797048157623778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700795428815961175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af03c08602c94a4dae3ccb00dffe239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementDistance: {fileID: 11400000, guid: fdd27d8aeae06914e8e098b998d883ad, type: 2}
+  _movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 1.5861521
+      outSlope: 1.5861521
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.3930028
+    - serializedVersion: 3
+      time: 2
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 4
+      value: 0.1
+      inSlope: -1.4798505
+      outSlope: 0
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.047684908
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _movementSpeed: 15
+  _isMoving: {fileID: 11400000, guid: b77485baf7c304c4db695a0fc61950b5, type: 2}
+--- !u!114 &-210170869302826184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700795428815961175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba02246f0405ad4408e7dc93c5c7d277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isMoving: {fileID: 11400000, guid: b77485baf7c304c4db695a0fc61950b5, type: 2}
+  _movementDistance: {fileID: 11400000, guid: fdd27d8aeae06914e8e098b998d883ad, type: 2}
+--- !u!114 &-9098299390804725796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700795428815961175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4adc32b7868646a45af2ecf4c19ae4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7832611276273806636
 PrefabInstance:
   m_ObjectHideFlags: 0

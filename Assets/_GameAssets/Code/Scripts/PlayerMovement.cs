@@ -1,37 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Build.Reporting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    [SerializeField, Range(0, 100)] private float _movementDistance;
+    [SerializeField] private FloatVariableSO _movementDistance;
     [SerializeField] private AnimationCurve _movementCurve;
     [SerializeField] private float _movementSpeed;
-    private bool _isMoving;
+    [SerializeField] private BoolVariableSO _isMoving;
 
-    
 
-    private void Update()
+    public void MoveLeft()
     {
-        if (!_isMoving)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > -_movementDistance)
-            {
-                StartCoroutine(Move(-_movementDistance));
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < _movementDistance)
-            {
-                StartCoroutine(Move(_movementDistance));
-            }
-        }
+        StartCoroutine(Move(-_movementDistance.Value));
+    }
+
+    public void MoveRight()
+    {
+        StartCoroutine(Move(_movementDistance.Value));
     }
 
     private IEnumerator Move(float distance)
     {
-        _isMoving = true;
+        _isMoving.Value = true;
         Vector3 initialPosition = transform.position;
         Vector3 positionToMove = new Vector3(initialPosition.x + distance, initialPosition.y, initialPosition.z);
 
@@ -43,6 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-        _isMoving = false;
+        _isMoving.Value = false;
     }
 }
