@@ -15,7 +15,7 @@ public class PlayerStateMachine : MonoBehaviour
 {
     private PlayerMovement _playerMovement;
 
-    private void Start()
+    private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
     }
@@ -29,6 +29,9 @@ public class PlayerStateMachine : MonoBehaviour
                 break;
             case PlayerState.TurnRight:
                 _playerMovement.MoveRight();
+                break;
+            case PlayerState.Jump:
+                _playerMovement.Jump();
                 break;
         }
     }
