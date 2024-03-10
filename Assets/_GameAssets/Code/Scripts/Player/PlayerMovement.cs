@@ -4,9 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private FloatVariableSO _movementDistance;
-    [SerializeField] private FloatVariableSO _jumpDistance;
-    [SerializeField] private BoolVariableSO _isMoving;
-    [SerializeField] private BoolVariableSO _isGrounded;
+    [SerializeField] private BoolVariableSO _isTurning;
     [SerializeField] private float _movementForce;
     [SerializeField] private float _jumpForce;
     private Rigidbody _rigidBody;
@@ -18,12 +16,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveLeft()
     {
-        StartCoroutine(Move(false));
+        StartCoroutine(Turn(false));
     }
 
     public void MoveRight()
     {
-        StartCoroutine(Move(true));
+        StartCoroutine(Turn(true));
     }
 
     public void Jump()
@@ -31,9 +29,9 @@ public class PlayerMovement : MonoBehaviour
         _rigidBody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
     }
 
-    public IEnumerator Move(bool toRight)
+    public IEnumerator Turn(bool toRight)
     {
-        _isMoving.Value = true;
+        _isTurning.Value = true;
 
         int direction = toRight ? 1 : -1;
         Vector3 initialPosition = transform.position;
@@ -48,16 +46,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 stoppedVelocity = new Vector3(0, _rigidBody.velocity.y, _rigidBody.velocity.z);
         _rigidBody.velocity = stoppedVelocity;
 
-        _isMoving.Value = false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        _isGrounded.Value = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        _isGrounded.Value = false;
+        _isTurning.Value = false;
     }
 }

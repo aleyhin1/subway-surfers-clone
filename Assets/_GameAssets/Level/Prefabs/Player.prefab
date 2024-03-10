@@ -46,7 +46,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: b5ba1d18329017948b173dbb1e8818f0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: -210170869302826184}
   - component: {fileID: -9098299390804725796}
   - component: {fileID: 3194040669717410606}
+  - component: {fileID: 4718135812011679659}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -154,9 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementDistance: {fileID: 11400000, guid: fdd27d8aeae06914e8e098b998d883ad, type: 2}
-  _jumpDistance: {fileID: 11400000, guid: aa71a3ffd8be4474891ebcb5780d41fb, type: 2}
-  _isMoving: {fileID: 11400000, guid: b77485baf7c304c4db695a0fc61950b5, type: 2}
-  _isGrounded: {fileID: 11400000, guid: f5964d7cc699cee45819741ba04ac535, type: 2}
+  _isTurning: {fileID: 11400000, guid: b77485baf7c304c4db695a0fc61950b5, type: 2}
   _movementForce: 15
   _jumpForce: 10
 --- !u!114 &-210170869302826184
@@ -198,6 +197,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9ce590b7ee57b41afab86ff81d68f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gravityScale: 2
+--- !u!114 &4718135812011679659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700795428815961175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca958fe9141c1784c91deea024ca8da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 3047419383909813419}
+  _isGrounded: {fileID: 11400000, guid: f5964d7cc699cee45819741ba04ac535, type: 2}
 --- !u!1 &4895514147677750116
 GameObject:
   m_ObjectHideFlags: 0

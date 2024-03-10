@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5011db13487ae0b468857758f2b3f245, type: 3}
-  m_Name: JumpDistance
+  m_Script: {fileID: 11500000, guid: 07eaa12b6d9f216409d3fbdd44f21707, type: 3}
+  m_Name: IsTurning
   m_EditorClassIdentifier: 
-  Value: 4
+  Value: 0

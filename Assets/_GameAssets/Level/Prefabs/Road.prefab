@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25102b63cb055ea48a2ddc6a47169463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 3
+  _movementSpeed: 5
 --- !u!114 &-5186391502372148393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca862a78583a2f94083e6de551c827d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileCount: 6
+  TileCount: 12
   TileSideLength: 0
   _roadTile: {fileID: 6882243053289863403, guid: 2cde830599ba61a42920a4cb110e0d5d,
     type: 3}
