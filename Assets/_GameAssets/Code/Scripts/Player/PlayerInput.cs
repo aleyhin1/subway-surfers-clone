@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private BoolVariableSO _isMoving;
     [SerializeField] private FloatVariableSO _movementDistance;
     [SerializeField] private BoolVariableSO _isGrounded;
+    [SerializeField] private BoolVariableSO _isRolling;
     private PlayerStateMachine _stateMachine;
 
     private void Awake()
@@ -29,9 +30,9 @@ public class PlayerInput : MonoBehaviour
         {
             _stateMachine.UpdateState(PlayerState.Jump);
         }
-        else if (Input.GetKeyUp(KeyCode.S))
+        else if (Input.GetKeyUp(KeyCode.S) && CanRoll())
         {
-
+            _stateMachine.UpdateState(PlayerState.Roll);
         }
     }
 
@@ -47,6 +48,11 @@ public class PlayerInput : MonoBehaviour
 
     private bool CanJump()
     {
-        return _isGrounded.Value;
+        return _isGrounded.Value && !_isRolling.Value;
+    }
+
+    private bool CanRoll()
+    {
+        return !_isRolling.Value && _isGrounded.Value;
     }
 }

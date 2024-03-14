@@ -13,11 +13,14 @@ public enum PlayerState
 
 public class PlayerStateMachine : MonoBehaviour
 {
+    [SerializeField] private FloatVariableSO _rollTime;
     private PlayerMovement _playerMovement;
+    private PlayerAnimation _playerAnimation;
 
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
+        _playerAnimation = GetComponent<PlayerAnimation>();
     }
 
     public void UpdateState(PlayerState state)
@@ -32,6 +35,10 @@ public class PlayerStateMachine : MonoBehaviour
                 break;
             case PlayerState.Jump:
                 _playerMovement.Jump();
+                break;
+            case PlayerState.Roll:
+                StartCoroutine(_playerMovement.Roll());
+                StartCoroutine(_playerAnimation.SetAnimationOneShot("isRolling", true, _rollTime.Value));
                 break;
         }
     }

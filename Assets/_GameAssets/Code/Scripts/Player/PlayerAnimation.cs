@@ -18,4 +18,13 @@ public class PlayerAnimation : MonoBehaviour
         _isGrounded.Value = false;
         _animator.SetBool("IsGrounded", false);
     }
+
+    public IEnumerator SetAnimationOneShot(string animName, bool value, float time)
+    {
+        _animator.SetBool(animName, value);
+
+        yield return new WaitForSeconds(time);
+
+        _animator.SetBool(animName, !value);
+    }
 }
