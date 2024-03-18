@@ -8,10 +8,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5606356314841319036, guid: 2510828a75709db48999cee776dcdae5,
+        type: 3}
+      propertyPath: <IsWalkable>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2073062268463935269, guid: 2510828a75709db48999cee776dcdae5,
         type: 3}
       propertyPath: m_Name
-      value: DoorWall Variant
+      value: DoorWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731935231541355421, guid: 2510828a75709db48999cee776dcdae5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731935231541355421, guid: 2510828a75709db48999cee776dcdae5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731935231541355421, guid: 2510828a75709db48999cee776dcdae5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3731935231541355421, guid: 2510828a75709db48999cee776dcdae5,
         type: 3}
@@ -63,7 +83,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7625219220766370711, guid: 2510828a75709db48999cee776dcdae5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -2327598632287688573, guid: 2510828a75709db48999cee776dcdae5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7625219220766370711, guid: 2510828a75709db48999cee776dcdae5,

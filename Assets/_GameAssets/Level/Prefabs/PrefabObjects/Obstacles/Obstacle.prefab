@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3731935231541355421}
+  - component: {fileID: -5606356314841319036}
+  - component: {fileID: -4408720638263317019}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -32,6 +34,33 @@ Transform:
   - {fileID: 7625219220766370711}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5606356314841319036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073062268463935269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834afead82c7ead4f96b3b506c891014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsWalkable>k__BackingField: 0
+  _safeInterval: 15
+--- !u!114 &-4408720638263317019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073062268463935269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7543cac08f37cb45bbb9fa3eaf26982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSpeed: {fileID: 11400000, guid: c5d4f269e2b76f143962541f58d103f6, type: 2}
 --- !u!1 &3697262250474796774
 GameObject:
   m_ObjectHideFlags: 0
