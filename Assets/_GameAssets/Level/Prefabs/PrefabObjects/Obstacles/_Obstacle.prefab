@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -5606356314841319036}
   - component: {fileID: -4408720638263317019}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: _Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsWalkable>k__BackingField: 0
-  _safeInterval: 15
+  _safeInterval: 20
 --- !u!114 &-4408720638263317019
 MonoBehaviour:
   m_ObjectHideFlags: 0
