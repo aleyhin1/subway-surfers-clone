@@ -1,8 +1,10 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float PlayerHeight { get; private set; }
     [SerializeField] private FloatVariableSO _movementDistance;
     [SerializeField] private FloatVariableSO _rollTime;
     [SerializeField] private BoolVariableSO _isTurning;
@@ -11,12 +13,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpForce;
     [SerializeField] private BoxCollider _rollCollider;
     private Rigidbody _rigidBody;
-    private BoxCollider _mainCollider;
+    private CapsuleCollider _mainCollider;
 
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
-        _mainCollider = GetComponent<BoxCollider>();
+        _mainCollider = GetComponent<CapsuleCollider>();
+        PlayerHeight = _mainCollider.height;
     }
 
     public void MoveLeft()

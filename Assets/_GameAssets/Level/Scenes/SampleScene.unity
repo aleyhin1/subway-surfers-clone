@@ -781,6 +781,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8132797048157623778, guid: 70c91be03c5c05e4abe641fdc5f76d1d,
+        type: 3}
+      propertyPath: _slopeForce
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

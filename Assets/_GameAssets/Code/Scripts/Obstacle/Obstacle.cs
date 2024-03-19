@@ -10,9 +10,21 @@ public class Obstacle : MonoBehaviour
 
     private void Start()
     {
-        float colliderRadiusZ = GetComponentInChildren<Collider>().bounds.extents.z;
+        float colliderRadiusZ = GetColliderRadiusZ();
         float spawnInterval = colliderRadiusZ + _safeInterval;
 
         SpawnInterval = spawnInterval;
+    }
+
+    private float GetColliderRadiusZ()
+    {
+        float radiusZ = 0;
+
+        foreach(Collider collider in GetComponentsInChildren<Collider>())
+        {
+            radiusZ += collider.bounds.extents.z;
+        }
+
+        return radiusZ;
     }
 }

@@ -49,5 +49,6 @@ MonoBehaviour:
   - {fileID: 7728617704299193957, guid: 0dd16fdb0b6a60841b39ae936a8e9570, type: 3}
   - {fileID: 5309302574647350777, guid: 2c755953de267eb45a4ea47cf2acff35, type: 3}
   - {fileID: 1205278684838825289, guid: 1dd889e660cd7124b86c115747160748, type: 3}
+  - {fileID: 811492517078831727, guid: 0b490572c8c88fa4ba27d5b3d74a74c8, type: 3}
   _spawnPositionZ: 100
   _movementDistance: {fileID: 11400000, guid: fdd27d8aeae06914e8e098b998d883ad, type: 2}
