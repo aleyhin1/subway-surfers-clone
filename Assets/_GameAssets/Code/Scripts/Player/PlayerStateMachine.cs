@@ -2,26 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerState
-{
-    TurnLeft,
-    TurnRight,
-    Jump,
-    Roll,
-    Fall,
-}
-
 public class PlayerStateMachine : MonoBehaviour
 {
     [SerializeField] private FloatVariableSO _rollTime;
     [SerializeField] private BoolVariableSO _isGrounded;
     private PlayerMovement _playerMovement;
     private PlayerAnimation _playerAnimation;
+    private PlayerHitboxController _playerHitboxController;
 
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
         _playerAnimation = GetComponent<PlayerAnimation>();
+        _playerHitboxController = GetComponentInChildren<PlayerHitboxController>();
     }
 
     private void FixedUpdate()
@@ -43,8 +36,12 @@ public class PlayerStateMachine : MonoBehaviour
                 _playerMovement.Jump();
                 break;
             case PlayerState.Roll:
-                StartCoroutine(_playerMovement.Roll());
+                StartCoroutine(_playerMovement.Roll(_rollTime.Value));
+                StartCoroutine(_playerHitboxController.ToggleRollHitbox(_rollTime.Value));
                 StartCoroutine(_playerAnimation.SetAnimationOneShot("isRolling", true, _rollTime.Value));
+                break;
+            case PlayerState.Hit:
+                Debug.Log("I'm hit!!!");
                 break;
         }
     }
@@ -55,13 +52,8 @@ public class PlayerStateMachine : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit result, _playerMovement.PlayerHeight * .5f + .2f))
         {
-            float angle = Vector3.Angle(Vector3.up, result.normal);
-
-            if (angle == 0)
-            {
-                _isGrounded.Value = true;
-                _playerAnimation.SetAnimationOneShot("IsGrounded", true);
-            }
+            _isGrounded.Value = true;
+            _playerAnimation.SetAnimationOneShot("IsGrounded", true);
         }
         else
         {

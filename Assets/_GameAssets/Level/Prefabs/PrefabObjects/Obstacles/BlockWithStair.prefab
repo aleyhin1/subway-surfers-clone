@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5606356314841319036, guid: 2510828a75709db48999cee776dcdae5,
+        type: 3}
+      propertyPath: <IsWalkable>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2073062268463935269, guid: 2510828a75709db48999cee776dcdae5,
         type: 3}
       propertyPath: m_Name

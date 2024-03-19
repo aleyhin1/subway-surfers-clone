@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public float PlayerHeight { get; private set; }
     [SerializeField] private FloatVariableSO _movementDistance;
-    [SerializeField] private FloatVariableSO _rollTime;
     [SerializeField] private BoolVariableSO _isTurning;
     [SerializeField] private BoolVariableSO _isRolling;
     [SerializeField] private float _movementForce;
@@ -57,14 +56,14 @@ public class PlayerMovement : MonoBehaviour
         _isTurning.Value = false;
     }
 
-    public IEnumerator Roll()
+    public IEnumerator Roll(float time)
     {
         _mainCollider.enabled = false;
         _rollCollider.enabled = true;
 
         _isRolling.Value = true;
 
-        yield return new WaitForSeconds(_rollTime.Value);
+        yield return new WaitForSeconds(time);
 
         _isRolling.Value = false;
 

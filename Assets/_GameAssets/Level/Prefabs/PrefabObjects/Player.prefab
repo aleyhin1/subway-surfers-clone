@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3149547580781113299}
-  - component: {fileID: 3394879252214207933}
+  - component: {fileID: 8092378550818373145}
   m_Layer: 0
   m_Name: RollCollider
   m_TagString: Untagged
@@ -32,14 +32,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4058150444376222688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3394879252214207933
+--- !u!65 &8092378550818373145
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067973438821633744}
-  m_Material: {fileID: 13400000, guid: 4fcd9228ed7904049bb585c947e0520e, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -49,10 +49,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 1.75}
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Size: {x: 0.75, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2818743129183733505
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: -9098299390804725796}
   - component: {fileID: 3194040669717410606}
   - component: {fileID: 4718135812011679659}
+  - component: {fileID: 7607921518329608085}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -145,6 +146,7 @@ Transform:
   m_Children:
   - {fileID: 2585581329764894578}
   - {fileID: 3149547580781113299}
+  - {fileID: 5703419341996249826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7126378808690017009
@@ -210,13 +212,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementDistance: {fileID: 11400000, guid: fdd27d8aeae06914e8e098b998d883ad, type: 2}
-  _rollTime: {fileID: 11400000, guid: 96c847129b54b374e892cdabe84d3b65, type: 2}
   _isTurning: {fileID: 11400000, guid: b77485baf7c304c4db695a0fc61950b5, type: 2}
   _isRolling: {fileID: 11400000, guid: 89d1e3e2b036070439111996ed90d86b, type: 2}
   _movementForce: 15
   _jumpForce: 10
-  _rollCollider: {fileID: 3394879252214207933}
-  _slopeForce: 1
+  _rollCollider: {fileID: 8092378550818373145}
 --- !u!114 &-210170869302826184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +273,125 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3047419383909813419}
+--- !u!114 &7607921518329608085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700795428815961175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a46829ea5200d44ab4c1f8b4fe54230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: {fileID: 11400000, guid: bb5de107d2ffdd74a912bd58827986c7, type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -9098299390804725796}
+        m_TargetAssemblyTypeName: PlayerStateMachine, Player
+        m_MethodName: UpdateState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &5849265969497357557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5703419341996249826}
+  - component: {fileID: 6629250919680345864}
+  - component: {fileID: 7623084637380455567}
+  - component: {fileID: 1887716897839251981}
+  m_Layer: 0
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5703419341996249826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849265969497357557}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4058150444376222688}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6629250919680345864
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849265969497357557}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!65 &7623084637380455567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849265969497357557}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1887716897839251981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849265969497357557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1daeceba3d6dbd54dbc4468b875e245d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _runningHitbox: {fileID: 6629250919680345864}
+  _rollHitbox: {fileID: 7623084637380455567}
+  _onPlayerHit: {fileID: 11400000, guid: bb5de107d2ffdd74a912bd58827986c7, type: 2}
 --- !u!1001 &7832611276273806636
 PrefabInstance:
   m_ObjectHideFlags: 0
