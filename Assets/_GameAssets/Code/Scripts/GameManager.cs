@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameState state;
     [SerializeField] private FloatVariableSO _endlessMovementSpeed;
     [SerializeField] private float _defaultEndlessMovementSpeed;
+    [SerializeField] private ScoreManager _scoreManager;
 
     private void Start()
     {
@@ -19,9 +20,11 @@ public class GameManager : MonoBehaviour
         switch (nextState)
         {
             case GameState.Running:
+                _scoreManager.SetCount(true);
                 _endlessMovementSpeed.Value = _defaultEndlessMovementSpeed;
                 break;
             case GameState.Over:
+                _scoreManager.SetCount(false);
                 _endlessMovementSpeed.Value = 0;
                 break;
         }
