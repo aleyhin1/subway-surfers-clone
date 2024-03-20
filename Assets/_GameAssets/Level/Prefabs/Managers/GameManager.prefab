@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5001583840511977950}
   - component: {fileID: 2619557967246699155}
+  - component: {fileID: 6750659562719285021}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,3 +48,32 @@ MonoBehaviour:
   state: 0
   _endlessMovementSpeed: {fileID: 11400000, guid: c5d4f269e2b76f143962541f58d103f6,
     type: 2}
+  _defaultEndlessMovementSpeed: 10
+--- !u!114 &6750659562719285021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517862733546281000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae4d7e3fe0d5ea4ca987de872694ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: {fileID: 11400000, guid: 89e68df9111fc274790199779507aa3a, type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2619557967246699155}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: UpdateGameState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

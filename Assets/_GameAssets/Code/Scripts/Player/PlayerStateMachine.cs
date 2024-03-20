@@ -6,6 +6,7 @@ public class PlayerStateMachine : MonoBehaviour
 {
     [SerializeField] private FloatVariableSO _rollTime;
     [SerializeField] private BoolVariableSO _isGrounded;
+    [SerializeField] private GameStateEventChannelSO _onPlayerDeath;
     private PlayerMovement _playerMovement;
     private PlayerAnimation _playerAnimation;
     private PlayerHitboxController _playerHitboxController;
@@ -41,7 +42,10 @@ public class PlayerStateMachine : MonoBehaviour
                 StartCoroutine(_playerAnimation.SetAnimationOneShot("isRolling", true, _rollTime.Value));
                 break;
             case PlayerState.Hit:
-                Debug.Log("I'm hit!!!");
+                break;
+            case PlayerState.Death:
+                _playerAnimation.SetAnimationOneShot("IsDeath", true);
+                _onPlayerDeath.RaiseEvent(GameState.Over);
                 break;
         }
     }

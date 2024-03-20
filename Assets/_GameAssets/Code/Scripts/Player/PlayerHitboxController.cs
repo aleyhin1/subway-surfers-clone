@@ -26,6 +26,6 @@ public class PlayerHitboxController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _onPlayerHit.RaiseEvent(PlayerState.Hit);
+        _onPlayerHit.RaiseEvent(PlayerState.Death);
     }
 }

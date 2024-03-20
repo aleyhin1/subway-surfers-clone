@@ -5,4 +5,5 @@ public enum PlayerState
     Jump,
     Roll,
     Hit,
+    Death,
 }

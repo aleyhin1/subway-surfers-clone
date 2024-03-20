@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rollTime: {fileID: 11400000, guid: 96c847129b54b374e892cdabe84d3b65, type: 2}
   _isGrounded: {fileID: 11400000, guid: f5964d7cc699cee45819741ba04ac535, type: 2}
+  _onPlayerDeath: {fileID: 11400000, guid: 89e68df9111fc274790199779507aa3a, type: 2}
 --- !u!114 &3194040669717410606
 MonoBehaviour:
   m_ObjectHideFlags: 0
