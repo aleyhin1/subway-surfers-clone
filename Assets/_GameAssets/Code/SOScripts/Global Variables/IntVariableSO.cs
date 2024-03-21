@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 [CreateAssetMenu(menuName = "ScriptableObject/Global Variables/Int Variable")]
 public class IntVariableSO : ScriptableObject

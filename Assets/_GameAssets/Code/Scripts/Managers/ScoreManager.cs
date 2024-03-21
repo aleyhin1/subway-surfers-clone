@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private IntVariableSO _score;
+    [SerializeField] private IntVariableSO _highestScore;
     [SerializeField] private FloatVariableSO _endlessMovementSpeed;
     private float _elapsedTime = 0;
     private bool _canCount;
@@ -27,5 +28,10 @@ public class ScoreManager : MonoBehaviour
         _score.Value = currentScore;
 
         _elapsedTime += Time.deltaTime;
+    }
+
+    public void SetHighestScore()
+    {
+        _highestScore.Value = Mathf.Max(_score.Value, _highestScore.Value);
     }
 }

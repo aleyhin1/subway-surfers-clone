@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FloatVariableSO _endlessMovementSpeed;
     [SerializeField] private float _defaultEndlessMovementSpeed;
     [SerializeField] private ScoreManager _scoreManager;
+    [SerializeField] private DatabaseManager _databaseManager;
 
     private void Start()
     {
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
             case GameState.Over:
                 _scoreManager.SetCount(false);
                 _endlessMovementSpeed.Value = 0;
+                _scoreManager.SetHighestScore();
+                _databaseManager.SaveHighestScore();
                 break;
         }
     }
