@@ -7,8 +7,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private IntVariableSO _score;
     [SerializeField] private IntVariableSO _highestScore;
     [SerializeField] private FloatVariableSO _endlessMovementSpeed;
+    [SerializeField] private VoidEventChannelSO _onNewRecord;
     private float _elapsedTime = 0;
     private bool _canCount;
+    private bool _isNewRecordReached = false;
 
     private void Update()
     {
@@ -28,10 +30,21 @@ public class ScoreManager : MonoBehaviour
         _score.Value = currentScore;
 
         _elapsedTime += Time.deltaTime;
+
+        if (IsNewRecord() && !_isNewRecordReached)
+        {
+            _onNewRecord.RaiseEvent();
+            _isNewRecordReached = true;
+        }
     }
 
     public void SetHighestScore()
     {
         _highestScore.Value = Mathf.Max(_score.Value, _highestScore.Value);
+    }
+
+    private bool IsNewRecord()
+    {
+        return _score.Value > _highestScore.Value;
     }
 }

@@ -48,3 +48,4 @@ MonoBehaviour:
   _highestScore: {fileID: 11400000, guid: a7869f4842303ee41bb864f3789fdc36, type: 2}
   _endlessMovementSpeed: {fileID: 11400000, guid: c5d4f269e2b76f143962541f58d103f6,
     type: 2}
+  _onNewRecord: {fileID: 11400000, guid: 38b68ba86295a514ab90f7481f42d421, type: 2}
