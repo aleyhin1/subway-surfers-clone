@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DatabaseManager _databaseManager;
     [SerializeField] private float _speedUpIncrease;
     [SerializeField] private float _speedUpTimeInterval;
+    private IEnumerator _speedUpCoroutine;
 
     private void Start()
     {
@@ -25,11 +26,11 @@ public class GameManager : MonoBehaviour
             case GameState.Running:
                 _scoreManager.SetCount(true);
                 _endlessMovementSpeed.Value = _defaultEndlessMovementSpeed;
-                StartCoroutine(SpeedUpGame(_speedUpIncrease, _speedUpTimeInterval));
+                StartCoroutine(_speedUpCoroutine = SpeedUpGame(_speedUpIncrease, _speedUpTimeInterval));
                 break;
             case GameState.Over:
                 _scoreManager.SetCount(false);
-                StopCoroutine(SpeedUpGame(_speedUpIncrease, _speedUpTimeInterval));
+                StopCoroutine(_speedUpCoroutine);
                 _endlessMovementSpeed.Value = 0;
                 _scoreManager.SetHighestScore();
                 _databaseManager.SaveHighestScore();
