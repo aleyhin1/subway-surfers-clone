@@ -54,7 +54,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, Vector3.down);
 
-        if (Physics.Raycast(ray, out RaycastHit result, _playerMovement.PlayerHeight * .5f + .2f))
+        if (Physics.Raycast(ray, out RaycastHit result, _playerMovement.PlayerHeight * .5f + .05f))
         {
             _isGrounded.Value = true;
             _playerAnimation.SetAnimationOneShot("IsGrounded", true);
