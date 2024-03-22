@@ -49,6 +49,10 @@ MonoBehaviour:
   _endlessMovementSpeed: {fileID: 11400000, guid: c5d4f269e2b76f143962541f58d103f6,
     type: 2}
   _defaultEndlessMovementSpeed: 10
+  _scoreManager: {fileID: 0}
+  _databaseManager: {fileID: 0}
+  _speedUpIncrease: 1
+  _speedUpTimeInterval: 10
 --- !u!114 &6750659562719285021
 MonoBehaviour:
   m_ObjectHideFlags: 0
