@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private IntVariableSO _score;
     [SerializeField] private IntVariableSO _highestScore;
-    [SerializeField] private FloatVariableSO _endlessMovementSpeed;
+    [SerializeField] private FloatVariableSO _gameSpeed;
     [SerializeField] private VoidEventChannelSO _onNewRecord;
     private float _elapsedTime = 0;
     private bool _canCount;
@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (!_canCount) return;
 
-        int currentScore = (int)(_elapsedTime * _endlessMovementSpeed.Value);
+        int currentScore = (int)(_elapsedTime * _gameSpeed.Value);
         _score.Value = currentScore;
 
         _elapsedTime += Time.deltaTime;

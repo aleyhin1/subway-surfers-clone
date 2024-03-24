@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Codice.Client.Commands.WkTree.WorkspaceTreeNode;
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PlayerStateMachine : MonoBehaviour
         _playerHitboxController = GetComponentInChildren<PlayerHitboxController>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         CheckGround();
     }
@@ -54,7 +55,12 @@ public class PlayerStateMachine : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, Vector3.down);
 
-        if (Physics.Raycast(ray, out RaycastHit result, _playerMovement.PlayerHeight * .5f + .05f))
+        if (IsOnGround(ray))
+        {
+            _isGrounded.Value = true;
+            _playerAnimation.SetAnimationOneShot("IsGrounded", true);
+        }
+        else if (IsOnSlope(ray))
         {
             _isGrounded.Value = true;
             _playerAnimation.SetAnimationOneShot("IsGrounded", true);
@@ -64,5 +70,45 @@ public class PlayerStateMachine : MonoBehaviour
             _isGrounded.Value = false;
             _playerAnimation.SetAnimationOneShot("IsGrounded", false);
         }
+    }
+
+    private bool IsOnGround(Ray ray)
+    {
+        float? surfaceAngle = GetSurfaceAngle(ray);
+        
+        if (surfaceAngle.HasValue)
+        {
+            return surfaceAngle.Value == 0;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private bool IsOnSlope(Ray ray)
+    {
+        float? surfaceAngle = GetSurfaceAngle(ray);
+
+        if (surfaceAngle.HasValue)
+        {
+            return surfaceAngle.Value > 0;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private float? GetSurfaceAngle(Ray ray)
+    {
+        if (Physics.Raycast(ray, out RaycastHit result, _playerMovement.PlayerHeight * .5f + .05f))
+        {
+            float angle = Vector3.Angle(Vector3.up, result.normal);
+
+            return angle;
+        }
+
+        return null;
     }
 }

@@ -6,8 +6,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameState state;
+    [SerializeField] private FloatVariableSO _gameSpeed;
     [SerializeField] private FloatVariableSO _endlessMovementSpeed;
-    [SerializeField] private float _defaultEndlessMovementSpeed;
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private DatabaseManager _databaseManager;
     [SerializeField] private float _speedUpIncrease;
@@ -25,12 +25,14 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Running:
                 _scoreManager.SetCount(true);
-                _endlessMovementSpeed.Value = _defaultEndlessMovementSpeed;
+                _gameSpeed.Value = 1;
                 StartCoroutine(_speedUpCoroutine = SpeedUpGame(_speedUpIncrease, _speedUpTimeInterval));
+                _endlessMovementSpeed.Value = 10;
                 break;
             case GameState.Over:
                 _scoreManager.SetCount(false);
                 StopCoroutine(_speedUpCoroutine);
+                ChangeGameSpeed(1);
                 _endlessMovementSpeed.Value = 0;
                 _scoreManager.SetHighestScore();
                 _databaseManager.SaveHighestScore();
@@ -42,8 +44,15 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            _endlessMovementSpeed.Value += increase;
+            _gameSpeed.Value += increase;
+            ChangeGameSpeed(_gameSpeed.Value);
             yield return new WaitForSeconds(timeInterval);
         }
+    }
+
+    private void ChangeGameSpeed(float value)
+    {
+        Time.timeScale = value;
+        Time.fixedDeltaTime = 0.02f / value;
     }
 }

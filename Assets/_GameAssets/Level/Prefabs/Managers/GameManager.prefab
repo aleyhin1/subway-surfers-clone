@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  _gameSpeed: {fileID: 11400000, guid: e202c43fda184ec41a1d12aa2bd48e56, type: 2}
   _endlessMovementSpeed: {fileID: 11400000, guid: c5d4f269e2b76f143962541f58d103f6,
     type: 2}
-  _defaultEndlessMovementSpeed: 10
   _scoreManager: {fileID: 0}
   _databaseManager: {fileID: 0}
-  _speedUpIncrease: 1
+  _speedUpIncrease: 0.1
   _speedUpTimeInterval: 10
 --- !u!114 &6750659562719285021
 MonoBehaviour:
