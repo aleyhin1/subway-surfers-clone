@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] private List<Obstacle> _obstacles;
     [SerializeField] private float _spawnPositionZ;
     [SerializeField] private FloatVariableSO _movementDistance;
     public uint UnwalkablePathCount { get; set; }
     private List<SpawnPoint> _spawnPoints;
-    private List<Obstacle> _walkableObstacles;
+    private List<PooledObject> _walkableObstacles;
+    private ObjectPool _objectPool;
+
+    private void Awake()
+    {
+        _objectPool = GetComponent<ObjectPool>();
+    }
 
     private void Start()
     {
@@ -30,21 +35,25 @@ public class ObstacleSpawner : MonoBehaviour
             {
                 if (UnwalkablePathCount < 2)
                 {
-                    Obstacle randomObstacle = _obstacles[Random.Range(0, _obstacles.Count)];
-                    Obstacle spawnedObstacle = Instantiate<Obstacle>
-                        (randomObstacle, spawnPoint.Position, Quaternion.identity);
+                    PooledObject randomObstacle =
+                        _objectPool.ObjectsToPool[Random.Range(0, _objectPool.ObjectsToPool.Count)];
+                    PooledObject pooledObject = _objectPool.GetPooledObject(randomObstacle);
 
-                    spawnPoint.Track(spawnedObstacle);
+                    pooledObject.transform.position = spawnPoint.Position;
 
-                    if (!spawnedObstacle.IsWalkable) UnwalkablePathCount++;
+                    Obstacle obstacle = pooledObject.GetComponent<Obstacle>();
+                    spawnPoint.Track(obstacle);
+
+                    if (!obstacle.IsWalkable) UnwalkablePathCount++;
                 }
                 else
                 {
-                    Obstacle randomWalkableObstacle = _walkableObstacles[Random.Range(0, _walkableObstacles.Count)];
-                    Obstacle spawnedObstacle = Instantiate<Obstacle>
-                        (randomWalkableObstacle, spawnPoint.Position, Quaternion.identity);
+                    PooledObject randomWalkableObstacle = _walkableObstacles[Random.Range(0, _walkableObstacles.Count)];
+                    PooledObject pooledObject = _objectPool.GetPooledObject(randomWalkableObstacle);
+                    pooledObject.transform.position = spawnPoint.Position;
 
-                    spawnPoint.Track(spawnedObstacle);
+                    Obstacle obstacle = pooledObject.GetComponent<Obstacle>();
+                    spawnPoint.Track(obstacle);
                 }
                 
             }
@@ -68,11 +77,11 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void ListWalkableObstacles()
     {
-        _walkableObstacles = new List<Obstacle>();
+        _walkableObstacles = new List<PooledObject>();
 
-        foreach(Obstacle obstacle in _obstacles)
+        foreach(PooledObject obstacle in _objectPool.ObjectsToPool)
         {
-            if (obstacle.IsWalkable)
+            if (obstacle.GetComponent<Obstacle>().IsWalkable)
             {
                 _walkableObstacles.Add(obstacle);
             }

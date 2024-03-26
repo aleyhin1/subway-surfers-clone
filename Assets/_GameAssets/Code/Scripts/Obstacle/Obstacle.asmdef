@@ -2,7 +2,8 @@
     "name": "Obstacle",
     "rootNamespace": "",
     "references": [
-        "GUID:732bb4c8389f535418c9e0d721a47fba"
+        "GUID:732bb4c8389f535418c9e0d721a47fba",
+        "GUID:9ba12471174cd6442956d67a93260fc9"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
