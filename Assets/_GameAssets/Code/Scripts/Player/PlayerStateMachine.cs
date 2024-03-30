@@ -7,15 +7,18 @@ public class PlayerStateMachine : MonoBehaviour
 {
     [SerializeField] private FloatVariableSO _rollTime;
     [SerializeField] private BoolVariableSO _isGrounded;
-    [SerializeField] private GameStateEventChannelSO _onPlayerDeath;
+    [SerializeField] private GameStateEventChannelSO _onGameOver;
+    [SerializeField] private float _invulnerableTime;
     private PlayerMovement _playerMovement;
     private PlayerAnimation _playerAnimation;
     private PlayerHitboxController _playerHitboxController;
+    private PlayerHealth _playerHealth;
 
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
         _playerAnimation = GetComponent<PlayerAnimation>();
+        _playerHealth = GetComponent<PlayerHealth>();
         _playerHitboxController = GetComponentInChildren<PlayerHitboxController>();
     }
 
@@ -43,10 +46,13 @@ public class PlayerStateMachine : MonoBehaviour
                 StartCoroutine(_playerAnimation.SetAnimationOneShot("isRolling", true, _rollTime.Value));
                 break;
             case PlayerState.Hit:
+                _playerHealth.TakeDamage();
+                StartCoroutine(_playerHitboxController.DeactivateHitboxes(_invulnerableTime));
+                StartCoroutine(_playerAnimation.HitAnimation(_invulnerableTime));
                 break;
             case PlayerState.Death:
                 _playerAnimation.SetAnimationOneShot("IsDeath", true);
-                _onPlayerDeath.RaiseEvent(GameState.Over);
+                _onGameOver.RaiseEvent(GameState.Over);
                 break;
         }
     }
