@@ -39,7 +39,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067973438821633744}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4fcd9228ed7904049bb585c947e0520e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -216,9 +216,12 @@ MonoBehaviour:
   _movementDistance: {fileID: 11400000, guid: fdd27d8aeae06914e8e098b998d883ad, type: 2}
   _isTurning: {fileID: 11400000, guid: b77485baf7c304c4db695a0fc61950b5, type: 2}
   _isRolling: {fileID: 11400000, guid: 89d1e3e2b036070439111996ed90d86b, type: 2}
-  _movementForce: 15
+  _movementTime: 0.8
   _jumpForce: 10
   _rollCollider: {fileID: 8092378550818373145}
+  _obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &-210170869302826184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +253,7 @@ MonoBehaviour:
   _rollTime: {fileID: 11400000, guid: 96c847129b54b374e892cdabe84d3b65, type: 2}
   _isGrounded: {fileID: 11400000, guid: f5964d7cc699cee45819741ba04ac535, type: 2}
   _onGameOver: {fileID: 11400000, guid: 89e68df9111fc274790199779507aa3a, type: 2}
-  _invulnerableTime: 1
+  _invulnerableTime: 2.5
 --- !u!114 &3194040669717410606
 MonoBehaviour:
   m_ObjectHideFlags: 0

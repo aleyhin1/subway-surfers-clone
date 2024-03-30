@@ -49,6 +49,8 @@ public class PlayerStateMachine : MonoBehaviour
                 _playerHealth.TakeDamage();
                 StartCoroutine(_playerHitboxController.DeactivateHitboxes(_invulnerableTime));
                 StartCoroutine(_playerAnimation.HitAnimation(_invulnerableTime));
+                _playerMovement.ResetPosition();
+                StartCoroutine(_playerMovement.DeactivateObstacleCollision(_invulnerableTime));
                 break;
             case PlayerState.Death:
                 _playerAnimation.SetAnimationOneShot("IsDeath", true);
