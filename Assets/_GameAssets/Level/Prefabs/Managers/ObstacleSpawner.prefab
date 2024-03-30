@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897092bbecfdfa04fa854b457b048939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPositionZ: 100
+  _spawnPositionZ: 150
   _movementDistance: {fileID: 11400000, guid: fdd27d8aeae06914e8e098b998d883ad, type: 2}
 --- !u!114 &7346412742127997311
 MonoBehaviour:

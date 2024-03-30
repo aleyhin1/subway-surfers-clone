@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float GetDirection()
     {
-        float threshold = .2f;
+        float threshold = .1f;
         float distanceToGo = _rigidBody.position.x - _linePositionXPairs[_currentLine];
         if (Mathf.Abs(distanceToGo) < threshold)
         {

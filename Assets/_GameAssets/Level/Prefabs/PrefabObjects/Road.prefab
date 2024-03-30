@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca862a78583a2f94083e6de551c827d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileCount: 12
+  TileCount: 16
   TileSideLength: 0
   _roadTile: {fileID: 6882243053289863403, guid: 2cde830599ba61a42920a4cb110e0d5d,
     type: 3}
