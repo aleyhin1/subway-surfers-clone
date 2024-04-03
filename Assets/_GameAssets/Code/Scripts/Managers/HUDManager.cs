@@ -9,14 +9,41 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _scoreCountUI;
     [SerializeField] private TextMeshProUGUI _newRecordText;
     [SerializeField] private IntVariableSO _score;
+    [SerializeField] private IntVariableSO _goldScore;
+    [SerializeField] private FloatVariableSO _goldGainDelay;
+    private bool _canUpdateScoreCount = true;
 
     private void LateUpdate()
     {
         UpdateScoreCount();
     }
 
+    public void StartAddGoldScore()
+    {
+        StartCoroutine(AddGoldScore(_goldGainDelay.Value));
+    }
+
+    private IEnumerator AddGoldScore(float time)
+    {
+        _canUpdateScoreCount = false;
+        float elapsedTime = 0;
+
+        while (elapsedTime < time)
+        {
+            _scoreCountUI.text = _score.Value.ToString() + " + " + _goldScore.Value.ToString();
+
+            yield return new WaitForEndOfFrame();
+
+            elapsedTime += Time.deltaTime;
+        }
+
+        _canUpdateScoreCount = true;
+    }
+
     private void UpdateScoreCount()
     {
+        if (!_canUpdateScoreCount) return;
+
         _scoreCountUI.text = _score.Value.ToString();
     }
 

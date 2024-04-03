@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8857609630695370690}
   - component: {fileID: 3239672673024074799}
+  - component: {fileID: 3679982724448314677}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -48,3 +49,33 @@ MonoBehaviour:
   _highestScore: {fileID: 11400000, guid: a7869f4842303ee41bb864f3789fdc36, type: 2}
   _gameSpeed: {fileID: 11400000, guid: e202c43fda184ec41a1d12aa2bd48e56, type: 2}
   _onNewRecord: {fileID: 11400000, guid: 38b68ba86295a514ab90f7481f42d421, type: 2}
+  _goldScore: {fileID: 11400000, guid: 9c324ce4c80928d4099406e3efd089a7, type: 2}
+  _goldGainDelay: {fileID: 11400000, guid: 5e284c396951c5b47ab36fbc4164651f, type: 2}
+--- !u!114 &3679982724448314677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984272296607039630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad761bacb2d6324cb86b734783ff428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: {fileID: 11400000, guid: 33807feb648fe6a4fab9b510b7a73d4a, type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3239672673024074799}
+        m_TargetAssemblyTypeName: ScoreManager, Managers
+        m_MethodName: GainGoldScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

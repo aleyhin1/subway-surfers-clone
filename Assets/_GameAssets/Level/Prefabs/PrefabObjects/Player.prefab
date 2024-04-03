@@ -444,6 +444,7 @@ MonoBehaviour:
   _runningHitbox: {fileID: 6629250919680345864}
   _rollHitbox: {fileID: 7623084637380455567}
   _onPlayerHit: {fileID: 11400000, guid: bb5de107d2ffdd74a912bd58827986c7, type: 2}
+  _onGoldGained: {fileID: 11400000, guid: 33807feb648fe6a4fab9b510b7a73d4a, type: 2}
 --- !u!1001 &7832611276273806636
 PrefabInstance:
   m_ObjectHideFlags: 0

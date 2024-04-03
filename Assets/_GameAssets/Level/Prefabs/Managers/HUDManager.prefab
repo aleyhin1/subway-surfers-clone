@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 460337749087802760}
   - component: {fileID: 9148087432797338458}
   - component: {fileID: 8640203912571243802}
+  - component: {fileID: 2657218991112819902}
   m_Layer: 0
   m_Name: HUDManager
   m_TagString: Untagged
@@ -152,6 +153,8 @@ MonoBehaviour:
   _scoreCountUI: {fileID: 872758247177152224}
   _newRecordText: {fileID: 4608230028447016533}
   _score: {fileID: 11400000, guid: 80e0d34c59a4421419a31d360e8e863f, type: 2}
+  _goldScore: {fileID: 11400000, guid: 9c324ce4c80928d4099406e3efd089a7, type: 2}
+  _goldGainDelay: {fileID: 11400000, guid: 5e284c396951c5b47ab36fbc4164651f, type: 2}
 --- !u!114 &8640203912571243802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +186,34 @@ MonoBehaviour:
       - m_Target: {fileID: 9148087432797338458}
         m_TargetAssemblyTypeName: HUDManager, Managers
         m_MethodName: OpenNewRecordText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2657218991112819902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2517456933513414573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad761bacb2d6324cb86b734783ff428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: {fileID: 11400000, guid: 33807feb648fe6a4fab9b510b7a73d4a, type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9148087432797338458}
+        m_TargetAssemblyTypeName: HUDManager, Managers
+        m_MethodName: StartAddGoldScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

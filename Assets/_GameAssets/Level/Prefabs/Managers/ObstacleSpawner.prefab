@@ -65,4 +65,5 @@ MonoBehaviour:
   - {fileID: 7520175264064798344, guid: 0dd16fdb0b6a60841b39ae936a8e9570, type: 3}
   - {fileID: 5382639221307772180, guid: 2c755953de267eb45a4ea47cf2acff35, type: 3}
   - {fileID: 1415983811629782436, guid: 1dd889e660cd7124b86c115747160748, type: 3}
+  - {fileID: 3864955844423150452, guid: a4ca973ba8ee05c41ade56849d5a3c2f, type: 3}
   _poolSizePerObject: 30

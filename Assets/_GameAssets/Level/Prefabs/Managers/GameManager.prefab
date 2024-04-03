@@ -53,6 +53,7 @@ MonoBehaviour:
   _databaseManager: {fileID: 0}
   _speedUpIncrease: 0.1
   _speedUpTimeInterval: 10
+  _score: {fileID: 11400000, guid: 80e0d34c59a4421419a31d360e8e863f, type: 2}
 --- !u!114 &6750659562719285021
 MonoBehaviour:
   m_ObjectHideFlags: 0

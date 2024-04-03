@@ -8,39 +8,48 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private IntVariableSO _highestScore;
     [SerializeField] private FloatVariableSO _gameSpeed;
     [SerializeField] private VoidEventChannelSO _onNewRecord;
-    private float _elapsedTime = 0;
+    [SerializeField] private IntVariableSO _goldScore;
+    [SerializeField] private FloatVariableSO _goldGainDelay;
     private bool _canCount;
     private bool _isNewRecordReached = false;
-
-    private void Update()
-    {
-        CalculateScore();
-    }
 
     public void SetCount(bool value)
     {
         _canCount = value;
     }
 
-    private void CalculateScore()
+    public IEnumerator CalculateScore()
     {
-        if (!_canCount) return;
-
-        int currentScore = (int)(_elapsedTime * _gameSpeed.Value);
-        _score.Value = currentScore;
-
-        _elapsedTime += Time.deltaTime;
-
-        if (IsNewRecord() && !_isNewRecordReached)
+        while (_canCount)
         {
-            _onNewRecord.RaiseEvent();
-            _isNewRecordReached = true;
+            _score.Value += (int)(_gameSpeed.Value);
+
+            if (IsNewRecord() && !_isNewRecordReached)
+            {
+                _onNewRecord.RaiseEvent();
+                _isNewRecordReached = true;
+            }
+
+            yield return new WaitForSeconds(1);
         }
+        
     }
 
     public void SetHighestScore()
     {
         _highestScore.Value = Mathf.Max(_score.Value, _highestScore.Value);
+    }
+
+    public void GainGoldScore()
+    {
+        StartCoroutine(GainGoldScoreWithDelay(_goldGainDelay.Value));
+    }
+
+    private IEnumerator GainGoldScoreWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        _score.Value += _goldScore.Value;
     }
 
     private bool IsNewRecord()

@@ -7,6 +7,7 @@ public class PlayerHitboxController : MonoBehaviour
     [SerializeField] private BoxCollider _runningHitbox;
     [SerializeField] private BoxCollider _rollHitbox;
     [SerializeField] private PlayerStateEventChannelSO _onPlayerHit;
+    [SerializeField] private VoidEventChannelSO _onGoldGained;
     private bool _isHitboxesDeactivated;
 
     private void Start()
@@ -41,6 +42,15 @@ public class PlayerHitboxController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _onPlayerHit.RaiseEvent(PlayerState.Hit);
+        if (other.CompareTag("Gold"))
+        {
+            _onGoldGained.RaiseEvent();
+            PooledObject pooledObject = other.GetComponent<PooledObject>();
+            pooledObject.Release();
+        }
+        else
+        {
+            _onPlayerHit.RaiseEvent(PlayerState.Hit);
+        }
     }
 }
